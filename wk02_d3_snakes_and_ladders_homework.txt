@@ -1,0 +1,41 @@
+
+
+1. to run the game:
+ >type 'ruby snakes_and_ladders.rb' in terminal
+
+
+2. Are there parts you don't understand:
+
+- run.specs.sh - what is this file doing?
+- why are there no tests for viewer.rb and snakes_and_ladders.rb?
+
+- the Board class?
+class Board
+  def initialize(size, positions)
+    @state = Array.new(size,0)
+    set_up_positions(positions)
+  end
+
+  and then the functions written in board.rb
+
+- the TurnLog?
+class TurnLog
+  def initialize(params)
+    @player = params[:player]
+    @roll = params[:roll]
+    @modifier = params[:modifier]
+  end
+
+  def modifier_type
+    result = :space
+
+    result = :ladder if @modifier > 0
+    result = :snake if @modifier < 0
+
+    return result
+  end
+
+
+3. Dice returns a random number so the results can't be tested? (But could it not be tested to check it returns an integer?)
+
+4. Is all the 'put's in the Viewer for efficiency and to make it easier to edit the text in the interface?
